@@ -6,6 +6,6 @@ import { name as packageName } from "meteor/meteor-oauth-tradegecko";
 
 // Write your tests here!
 // Here is an example.
-Tinytest.add('meteor-oauth-tradegecko - example', function (test) {
-  test.equal(packageName, "meteor-oauth-tradegecko");
+Tinytest.add('tradegecko - example', function (test) {
+  test.equal(packageName, "terungwa:meteor-oauth-tradegecko");
 });

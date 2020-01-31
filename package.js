@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'meteor-oauth-tradegecko',
+  name: 'terungwa:meteor-oauth-tradegecko',
   version: '0.0.1',
   // Brief, one-line summary of the package.
-  summary: '',
+  summary: 'OAuth2 for Tradegecko',
   // URL to the Git repository containing the source code for this package.
   git: 'https://github.com/rkterungwa16/meteor-oauth-tradegecko.git',
   // By default, Meteor will default to using README.md for documentation.
@@ -11,7 +11,7 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.9');
+  api.versionsFrom('1.2.1');
   api.use('ecmascript');
   api.use('accounts-ui', ['client', 'server']);
   api.use('oauth2', ['client', 'server']);
@@ -22,17 +22,14 @@ Package.onUse(function(api) {
 
   api.export('Tradegecko');
 
-  api.addFiles(
-    ['tradegecko_configure.html', 'tradegecko_configure.js'],
-    'client');
-
-  api.addFiles('tradegecko_server.js', 'server');
-  api.addFiles('tradegecko_client.js', 'client');
+  api.addFiles('tradegecko-server.js', 'server');
+  api.addFiles('tradegecko-client.js', 'client');
 });
 
-Package.onTest(function(api) {
-  api.use('ecmascript');
-  api.use('tinytest');
-  api.use('tradegecko_client');
-  api.mainModule('meteor-oauth-tradegecko-tests.js');
-});
+// Package.onTest(function(api) {
+//   api.use('ecmascript');
+//   api.use('tinytest');
+//   api.use('tradegecko-client');
+//   api.use('tradegecko-server');
+//   api.mainModule('tradegecko-tests.js');
+// });
