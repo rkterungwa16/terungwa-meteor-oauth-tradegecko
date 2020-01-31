@@ -13,12 +13,26 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.9');
   api.use('ecmascript');
-  api.mainModule('meteor-oauth-tradegecko.js');
+  api.use('accounts-ui', ['client', 'server']);
+  api.use('oauth2', ['client', 'server']);
+  api.use('oauth', ['client', 'server']);
+  api.use('http', ['server']);
+  api.use(['underscore', 'service-configuration'], ['client', 'server']);
+  api.use(['random', 'templating'], 'client');
+
+  api.export('Tradegecko');
+
+  api.addFiles(
+    ['tradegecko_configure.html', 'tradegecko_configure.js'],
+    'client');
+
+  api.addFiles('tradegecko_server.js', 'server');
+  api.addFiles('tradegecko_client.js', 'client');
 });
 
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.use('meteor-oauth-tradegecko');
+  api.use('tradegecko_client');
   api.mainModule('meteor-oauth-tradegecko-tests.js');
 });
